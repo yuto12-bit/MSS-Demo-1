@@ -1,0 +1,715 @@
+@charset "UTF-8";
+
+/* ==============================================
+   Project Specific Sections Only
+   原則：案件差分・セクション追加はここだけに書く
+============================================== */
+
+/* index.html のHero差分 */
+.home-hero {
+  background-image: url('../images/hero.jpg');
+  background-position: center;
+}
+
+/* 例：案件独自セクション */
+.home-concept__lead {
+  font-size: 1.1rem;
+}
+
+.cta-title,
+.cta-text {
+  color: #fff;
+}
+
+.map-placeholder {
+  text-align: center;
+  padding: 40px;
+  border: 1px solid #ccc;
+}
+
+/* 例：高級焼き鳥案件ならこう増やす
+.yakitori-story { ... }
+.yakitori-story__inner { ... }
+.yakitori-story__title { ... }
+*/
+
+/* =========================
+   Project Custom: starter-default
+   このブロックより上はマスター共通
+   案件中にAIが触るのは原則このブロックより下だけ
+   ========================= */
+
+/* body案件クラスの基本運用 */
+.site--starter {
+  /* starter master scope */
+}
+
+/* ページ単位の差分を書きたい時の基本スコープ例
+.site--starter.page--home {}
+.site--starter.page--service {}
+.site--starter.page--contact {}
+.site--starter.page--privacy {}
+*/
+
+/* セクション単位で差分を書く時の基本例
+.site--starter .hero {}
+.site--starter .cta-section {}
+.site--starter .faq-container {}
+*/
+
+
+/* =========================================================
+   yakitori-akashi-01: Global Tokens & Base Overrides
+   ========================================================= */
+:root {
+  --ya-bg-base: #1f1a17;
+  --ya-bg-dark: #1a1512;
+  --ya-bg-deep: #16110f;
+  --ya-text-main: #e8e3da;
+  --ya-text-sub: #a8a8a8;
+  --ya-border-gold: rgba(140, 115, 75, 0.4);
+  --ya-border-light: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   yakitori-akashi-01: Header & Navigation
+   ========================================================= */
+.yakitori-header {
+  background-color: rgba(31, 26, 23, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ya-border-gold);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.yakitori-header-logo {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1rem;
+  color: var(--ya-text-main) !important;
+  letter-spacing: 0.15em;
+  font-weight: normal;
+  text-decoration: none;
+}
+.yakitori-nav-pc ul { gap: 3.5rem; }
+.yakitori-nav-pc a {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.95rem;
+  color: var(--ya-text-main) !important;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 0.4rem;
+}
+.yakitori-nav-pc a:hover,
+.yakitori-nav-pc a.is-current { color: #8c734b !important; }
+.yakitori-nav-pc a.is-current::after {
+  content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 16px; height: 1px; background-color: #8c734b;
+}
+.yakitori-menu-toggle { background: transparent; border: none; }
+.yakitori-menu-toggle .bar { background-color: var(--ya-text-main) !important; }
+.yakitori-nav-sp {
+  background-color: var(--ya-bg-deep) !important;
+  border-top: 1px solid var(--ya-border-gold);
+}
+.yakitori-nav-sp-list {
+  padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 2rem; margin: 0; list-style: none;
+}
+.yakitori-nav-sp-list a {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.1rem; color: var(--ya-text-main) !important;
+  letter-spacing: 0.1em; display: block; text-align: center;
+  padding-bottom: 1rem; border-bottom: 1px solid var(--ya-border-light); text-decoration: none;
+}
+.yakitori-nav-sp-list a:hover { color: #8c734b !important; }
+@media (min-width: 768px) {
+  .yakitori-header-logo { font-size: 1rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Page Headers & Hero
+   ========================================================= */
+.ya-hero-content {
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start;
+  min-height: 60vh; padding: 3rem 1.5rem;
+}
+.ya-hero-text-wrap { text-align: left; max-width: 95%; position: relative; z-index: 2; }
+.ya-hero-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.5rem; line-height: 1.6; margin-bottom: 1rem;
+  letter-spacing: 0.05em; text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+}
+.ya-hero-sub {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.9rem; line-height: 1.8; color: #eaeaea; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+.ya-hero-overlay {
+  background: linear-gradient(to top, rgba(31, 26, 23, 0.95) 0%, rgba(31, 26, 23, 0.6) 40%, rgba(31, 26, 23, 0.1) 100%);
+}
+.yakitori-page-header {
+  background: linear-gradient(to bottom, var(--ya-bg-deep) 0%, var(--ya-bg-dark) 100%);
+  padding: 6rem 1rem 4rem; position: relative; overflow: hidden;
+}
+.yakitori-page-header::before {
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 1px; height: 40px; background-color: #8c734b;
+}
+.yakitori-page-header-container { max-width: 800px; margin: 0 auto; }
+.yakitori-page-header-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+.yakitori-page-header-en {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.85rem;
+  letter-spacing: 0.25em; color: #8c734b; margin: 0; text-transform: uppercase;
+}
+.yakitori-page-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.6rem; color: #ffffff;
+  margin: 0; letter-spacing: 0.15em; font-weight: normal;
+}
+.yakitori-page-sub {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.9rem; color: var(--ya-text-sub);
+  margin: 0; letter-spacing: 0.08em; position: relative; padding-top: 1.5rem;
+}
+.yakitori-page-sub::before {
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 24px; height: 1px; background-color: #8c734b; opacity: 0.6;
+}
+@media (min-width: 768px) {
+  .ya-hero-content { min-height: 80vh; padding: 5rem 2rem; }
+  .ya-hero-title { font-size: 2.2rem; }
+  .ya-hero-sub { font-size: 1.1rem; }
+  .yakitori-page-header { padding: 8rem 2rem 5rem; }
+  .yakitori-page-header::before { height: 60px; }
+  .yakitori-page-title { font-size: 2.2rem; }
+  .yakitori-page-sub { font-size: 1rem; padding-top: 2rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Concept
+   ========================================================= */
+.yakitori-concept-section {
+  background: linear-gradient(135deg, var(--ya-bg-base) 0%, var(--ya-bg-dark) 100%);
+  padding: 5rem 1rem; color: var(--ya-text-main);
+}
+.yakitori-concept-container { max-width: 900px; margin: 0 auto; }
+.yakitori-concept-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.4rem; text-align: center;
+  margin-bottom: 4rem; letter-spacing: 0.15em; color: var(--ya-text-main); position: relative;
+}
+.yakitori-concept-title::after {
+  content: ""; display: block; width: 30px; height: 1px; background-color: #8c734b; margin: 1.2rem auto 0;
+}
+.yakitori-concept-timeline {
+  border-left: 1px solid var(--ya-border-gold); padding-left: 2.5rem;
+  display: flex; flex-direction: column; gap: 3.5rem; margin-left: 1rem;
+}
+.yakitori-concept-item { position: relative; border: none; padding-left: 0; }
+.yakitori-concept-item::before {
+  content: ""; position: absolute; top: 0.4rem; left: -2.85rem;
+  width: 0.6rem; height: 0.6rem; border-radius: 50%;
+  background-color: var(--ya-bg-base); border: 1px solid #8c734b;
+}
+.yakitori-concept-heading {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.1rem; margin-bottom: 1rem;
+  letter-spacing: 0.08em; color: var(--ya-text-main);
+}
+.yakitori-concept-text {
+  font-size: 0.9rem; line-height: 1.9; color: var(--ya-text-sub); letter-spacing: 0.03em;
+}
+@media (min-width: 768px) {
+  .yakitori-concept-section { padding: 7rem 2rem; }
+  .yakitori-concept-title { font-size: 1.8rem; margin-bottom: 5rem; }
+  .yakitori-concept-timeline { flex-direction: row; justify-content: space-between; gap: 3rem; border: none; margin: 0; padding: 0; }
+  .yakitori-concept-item { flex: 1; padding-left: 1.5rem; border-left: 1px solid var(--ya-border-gold); }
+  .yakitori-concept-item::before { left: -1px; width: 1px; height: 1.5rem; border-radius: 0; background-color: #8c734b; border: none; top: 0; }
+  .yakitori-concept-heading { font-size: 1.2rem; }
+  .yakitori-concept-text { font-size: 0.95rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Service & Menu
+   ========================================================= */
+.yakitori-service-section {
+  background: linear-gradient(to bottom, var(--ya-bg-dark) 0%, var(--ya-bg-base) 100%);
+  padding: 6rem 1rem;
+}
+.yakitori-service-container { max-width: 960px; margin: 0 auto; }
+.yakitori-service-sec-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.5rem; text-align: center;
+  margin-bottom: 3.5rem; letter-spacing: 0.15em; color: var(--ya-text-main);
+}
+.yakitori-service-grid { display: flex; flex-direction: column; gap: 3rem; }
+.yakitori-service-card {
+  background: transparent; border: none; box-shadow: none; border-radius: 0;
+  display: flex; flex-direction: column; align-items: center;
+}
+.yakitori-service-card--featured { border-bottom: 1px solid var(--ya-border-light); padding-bottom: 3rem; }
+.yakitori-service-subgrid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+.yakitori-service-card--list { flex-direction: row; align-items: center; gap: 1.5rem; }
+
+.yakitori-service-img-plate {
+  width: 220px; height: 220px; margin: 0 auto 2rem;
+  border: 1px solid var(--ya-border-gold); border-radius: 50%; padding: 6px;
+  display: flex; align-items: center; justify-content: center;
+}
+.yakitori-service-img-circle {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background-color: var(--ya-bg-base);
+}
+.yakitori-service-card--list .yakitori-service-img-plate {
+  width: 90px; height: 90px; margin: 0; padding: 3px; flex-shrink: 0;
+}
+
+.yakitori-service-body { padding: 0; width: 100%; }
+.yakitori-service-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.2rem; text-align: center;
+  margin-bottom: 0.4rem; color: var(--ya-text-main); letter-spacing: 0.05em;
+}
+.yakitori-service-card--list .yakitori-service-title { text-align: left; font-size: 1.1rem; }
+.yakitori-service-subtitle {
+  font-size: 0.8rem; text-align: center; color: #8c734b; margin-bottom: 1.2rem; letter-spacing: 0.05em;
+}
+.yakitori-service-card--list .yakitori-service-subtitle { display: none; }
+.yakitori-service-text { font-size: 0.9rem; line-height: 1.8; color: var(--ya-text-sub); text-align: left; }
+
+.yakitori-service-btn {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--ya-text-main); padding: 1rem 2.5rem; letter-spacing: 0.1em; font-size: 0.95rem; transition: all 0.3s ease;
+}
+.yakitori-service-btn:hover { background-color: #8c734b; border-color: #8c734b; color: #ffffff; }
+
+/* Menu List (Service.html) */
+.yakitori-menu-section {
+  background: linear-gradient(135deg, var(--ya-bg-dark) 0%, var(--ya-bg-base) 100%);
+  padding: 5rem 1rem;
+}
+.yakitori-menu-container { max-width: 900px; margin: 0 auto; }
+.yakitori-menu-list { display: flex; flex-direction: column; gap: 4.5rem; }
+.yakitori-menu-item {
+  display: flex; flex-direction: column; gap: 1.5rem; background: transparent; border: none; box-shadow: none; margin-bottom: 4rem; padding: 0;
+}
+.yakitori-menu-item--right { padding-left: 1.5rem; }
+.yakitori-menu-item--left { padding-right: 1.5rem; }
+.yakitori-menu-img-wrap { width: 100%; }
+.yakitori-menu-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; }
+.yakitori-menu-content { padding: 0 0.5rem; }
+.yakitori-menu-name {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.3rem; color: var(--ya-text-main);
+  margin-bottom: 0.5rem; letter-spacing: 0.08em; border-bottom: 1px solid var(--ya-border-gold); padding-bottom: 0.8rem;
+}
+.yakitori-menu-price {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.95rem; color: #8c734b;
+  margin-top: 0.8rem; margin-bottom: 1.2rem; letter-spacing: 0.05em;
+}
+.yakitori-menu-desc { font-size: 0.9rem; line-height: 1.9; color: var(--ya-text-sub); letter-spacing: 0.03em; }
+
+@media (min-width: 768px) {
+  .yakitori-service-section { padding: 8rem 2rem; }
+  .yakitori-service-sec-title { font-size: 1.8rem; margin-bottom: 5rem; }
+  .yakitori-service-subgrid { grid-template-columns: 1fr 1fr; }
+  .yakitori-service-img-plate { width: 280px; height: 280px; }
+  .yakitori-service-card--list .yakitori-service-img-plate { width: 110px; height: 110px; }
+  .yakitori-service-title { font-size: 1.3rem; }
+  .yakitori-service-text { font-size: 0.95rem; }
+  
+  .yakitori-menu-section { padding: 7rem 2rem; }
+  .yakitori-menu-list { gap: 6rem; }
+  .yakitori-menu-item { flex-direction: row; align-items: center; padding: 0; gap: 4rem; margin-bottom: 0; }
+  .yakitori-menu-item--left { flex-direction: row-reverse; }
+  .yakitori-menu-img-wrap { width: 50%; }
+  .yakitori-menu-content { width: 50%; padding: 0; }
+  .yakitori-menu-name { font-size: 1.5rem; }
+  .yakitori-menu-desc { font-size: 0.95rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Interior
+   ========================================================= */
+.yakitori-interior-section {
+  background: radial-gradient(circle at 50% 0%, var(--ya-bg-dark) 0%, var(--ya-bg-deep) 100%);
+  padding: 6rem 1rem; color: #e0e0e0;
+}
+.yakitori-interior-container { max-width: 800px; margin: 0 auto; }
+.yakitori-interior-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.4rem; text-align: center;
+  margin-bottom: 1.5rem; letter-spacing: 0.15em; color: #ffffff;
+}
+.yakitori-interior-lead {
+  text-align: center; font-size: 0.9rem; line-height: 1.9; color: var(--ya-text-sub); margin-bottom: 4rem;
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+}
+.yakitori-interior-gallery {
+  display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: 2rem; scrollbar-width: none; -ms-overflow-style: none;
+}
+.yakitori-interior-gallery::-webkit-scrollbar { display: none; }
+.yakitori-interior-item {
+  scroll-snap-align: center; flex: 0 0 85%; display: flex; flex-direction: column; gap: 1rem; margin: 0;
+}
+.yakitori-interior-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; opacity: 0.9; }
+.yakitori-interior-caption {
+  font-size: 0.85rem; color: #cccccc; letter-spacing: 0.05em; border-left: 1px solid #8c734b; padding-left: 0.8rem; line-height: 1.6;
+}
+@media (min-width: 768px) {
+  .yakitori-interior-section { padding: 8rem 2rem; }
+  .yakitori-interior-title { font-size: 1.8rem; }
+  .yakitori-interior-lead { font-size: 0.95rem; margin-bottom: 6rem; }
+  .yakitori-interior-gallery { flex-wrap: wrap; overflow-x: visible; }
+  .yakitori-interior-item { flex: 0 0 calc(50% - 0.75rem); }
+  .yakitori-interior-item:nth-child(3) { flex: 0 0 100%; align-items: center; }
+  .yakitori-interior-item:nth-child(3) .yakitori-interior-img { width: 60%; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Scene
+   ========================================================= */
+.yakitori-scene-section {
+  background: linear-gradient(to bottom, var(--ya-bg-base) 0%, var(--ya-bg-dark) 100%);
+  padding: 5rem 1rem;
+}
+.yakitori-scene-sec-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.5rem; text-align: center;
+  margin-bottom: 3.5rem; letter-spacing: 0.15em; color: #ffffff;
+}
+.yakitori-scene-layout {
+  display: flex; flex-direction: column; gap: 4rem; align-items: center;
+}
+.yakitori-scene-item-v {
+  display: flex; flex-direction: row; gap: 1.5rem; max-width: 400px; 
+}
+.yakitori-scene-title-v {
+  writing-mode: vertical-rl; font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.3rem; letter-spacing: 0.25em; line-height: 1.8; color: var(--ya-text-main); margin: 0;
+  border-left: none; padding-left: 0; border-right: 1px solid var(--ya-border-gold); padding-right: 1.2rem; padding-top: 0.2rem;
+}
+.yakitori-scene-text-h {
+  font-size: 0.95rem; line-height: 1.9; color: var(--ya-text-sub); text-align: left; margin: 0; padding-top: 0.5rem; 
+}
+@media (min-width: 768px) {
+  .yakitori-scene-section { padding: 7rem 2rem; }
+  .yakitori-scene-sec-title { font-size: 1.8rem; margin-bottom: 4rem; }
+  .yakitori-scene-layout { flex-direction: row; justify-content: center; gap: 3rem; }
+  .yakitori-scene-item-v { max-width: 320px; }
+  .yakitori-scene-item-v:nth-child(2) { margin-top: 3.5rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Access & Connect
+   ========================================================= */
+.yakitori-access-section {
+  background: linear-gradient(135deg, var(--ya-bg-base) 0%, var(--ya-bg-dark) 100%);
+  padding: 6rem 1rem;
+}
+.yakitori-access-container { max-width: 1000px; margin: 0 auto; }
+.yakitori-access-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.5rem; text-align: center; margin-bottom: 3rem;
+  letter-spacing: 0.15em; color: var(--ya-text-main);
+}
+.yakitori-access-grid { display: flex; flex-direction: column; gap: 3.5rem; }
+.yakitori-access-info-wrap { display: flex; flex-direction: column; }
+.yakitori-access-lead {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.05rem; line-height: 1.8; color: var(--ya-text-main);
+  margin-bottom: 2rem; letter-spacing: 0.05em; border-bottom: 1px solid var(--ya-border-gold); padding-bottom: 1.5rem;
+}
+.yakitori-access-table { width: 100%; border-collapse: collapse; margin-bottom: 3rem; }
+.yakitori-access-table th, .yakitori-access-table td {
+  padding: 1.2rem 0; border-bottom: 1px dashed var(--ya-border-light);
+  text-align: left; font-size: 0.95rem; line-height: 1.6; color: var(--ya-text-main);
+}
+.yakitori-access-table th {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-weight: normal;
+  width: 30%; color: #8c734b; vertical-align: top;
+}
+.yakitori-access-subtext { display: block; font-size: 0.8rem; color: var(--ya-text-sub); margin-top: 0.4rem; }
+.yakitori-access-map-wrap { width: 100%; }
+.yakitori-access-map {
+  aspect-ratio: 4 / 3; width: 100%; background-color: #ebebeb; position: relative; border: 1px solid var(--ya-border-gold);
+}
+.yakitori-access-map-placeholder {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #888; margin: 0; padding: 0; border: none; font-size: 0.9rem;
+}
+
+.yakitori-connect-section {
+  background: linear-gradient(to bottom, var(--ya-bg-dark) 0%, var(--ya-bg-deep) 100%);
+  padding: 4rem 1rem 5rem;
+}
+.yakitori-connect-container { max-width: 1000px; margin: 0 auto; }
+.yakitori-connect-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.yakitori-connect-item {
+  border: 1px solid var(--ya-border-gold); background-color: rgba(255, 255, 255, 0.02);
+  padding: 2.5rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center;
+}
+.yakitori-connect-item--main { padding: 3.5rem 1.5rem; }
+.yakitori-connect-heading {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.1rem; color: var(--ya-text-main);
+  margin-bottom: 1rem; letter-spacing: 0.08em;
+}
+.yakitori-connect-text {
+  font-size: 0.85rem; line-height: 1.8; color: var(--ya-text-sub); margin-bottom: 1.8rem; flex-grow: 1;
+}
+.yakitori-connect-btn {
+  display: inline-block; font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.9rem; color: var(--ya-text-main); text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.8rem 2rem; letter-spacing: 0.05em; transition: all 0.3s ease; width: 100%; max-width: 280px;
+}
+.yakitori-connect-btn:hover { background-color: #8c734b; border-color: #8c734b; color: #ffffff; }
+
+@media (min-width: 768px) {
+  .yakitori-access-section { padding: 8rem 2rem; }
+  .yakitori-access-title { font-size: 1.8rem; margin-bottom: 5rem; }
+  .yakitori-access-grid { flex-direction: row; justify-content: space-between; gap: 4rem; }
+  .yakitori-access-info-wrap { width: 48%; }
+  .yakitori-access-map-wrap { width: 48%; }
+  .yakitori-access-map { aspect-ratio: 1 / 1; }
+  .yakitori-connect-section { padding: 5rem 2rem 7rem; }
+  .yakitori-connect-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .yakitori-connect-item--main { grid-column: span 2; }
+  .yakitori-connect-heading { font-size: 1.2rem; }
+  .yakitori-connect-text { font-size: 0.9rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Notice & FAQ
+   ========================================================= */
+.yakitori-notice-section { background: var(--ya-bg-dark); padding: 4rem 1rem 2rem; }
+.yakitori-notice-container {
+  max-width: 800px; margin: 0 auto; border-top: 1px solid var(--ya-border-gold); padding-top: 3rem;
+}
+.yakitori-notice-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.1rem; text-align: center; color: var(--ya-text-main);
+  margin-bottom: 2.5rem; letter-spacing: 0.1em;
+}
+.yakitori-notice-list { display: flex; flex-direction: column; gap: 2rem; }
+.yakitori-notice-item { text-align: center; }
+.yakitori-notice-heading {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.95rem; color: #8c734b; margin-bottom: 0.6rem; letter-spacing: 0.05em;
+}
+.yakitori-notice-text { font-size: 0.85rem; color: var(--ya-text-sub); line-height: 1.6; }
+
+.yakitori-faq-section {
+  background: linear-gradient(180deg, var(--ya-bg-dark) 0%, var(--ya-bg-deep) 100%); padding: 6rem 1rem;
+}
+.yakitori-faq-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.5rem; text-align: center; margin-bottom: 3rem;
+  letter-spacing: 0.15em; color: var(--ya-text-main);
+}
+.yakitori-faq-container { max-width: 800px; margin: 0 auto; border-top: 1px solid var(--ya-border-light); }
+.yakitori-faq-item { border-bottom: 1px solid var(--ya-border-light); background-color: transparent; margin: 0; border-radius: 0; box-shadow: none; }
+.yakitori-faq-q {
+  display: flex; align-items: flex-start; justify-content: space-between; width: 100%; padding: 1.5rem 0.5rem; background: transparent; border: none; cursor: pointer;
+}
+.yakitori-faq-q-content { display: flex; align-items: flex-start; gap: 0.8rem; text-align: left; }
+.yakitori-q-icon { font-family: "Yu Mincho", "Noto Serif JP", serif; color: #8c734b; font-size: 1.1rem; line-height: 1.4; flex-shrink: 0; }
+.yakitori-faq-q-text { font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1rem; color: var(--ya-text-main); line-height: 1.5; letter-spacing: 0.05em; }
+.yakitori-toggle-icon { flex-shrink: 0; margin-left: 1rem; margin-top: 0.2rem; color: #8c734b; }
+.yakitori-faq-a-inner { display: flex; align-items: flex-start; gap: 0.8rem; padding: 0 0.5rem 1.8rem; }
+.yakitori-a-icon { font-family: "Yu Mincho", "Noto Serif JP", serif; color: #888888; font-size: 1.1rem; line-height: 1.6; flex-shrink: 0; }
+.yakitori-faq-a-text { font-size: 0.9rem; line-height: 1.8; color: var(--ya-text-sub); margin: 0; }
+
+@media (min-width: 768px) {
+  .yakitori-notice-section { padding: 6rem 2rem 3rem; }
+  .yakitori-notice-container { padding-top: 4rem; }
+  .yakitori-notice-list { flex-direction: row; justify-content: space-between; gap: 3rem; }
+  .yakitori-notice-item { flex: 1; text-align: left; }
+  .yakitori-faq-section { padding: 8rem 2rem; }
+  .yakitori-faq-title { font-size: 1.8rem; margin-bottom: 4rem; }
+  .yakitori-faq-q { padding: 2rem 1rem; }
+  .yakitori-faq-q-text { font-size: 1.1rem; }
+  .yakitori-faq-a-inner { padding: 0 1rem 2.5rem; }
+  .yakitori-faq-a-text { font-size: 0.95rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Contact Page Header
+   ========================================================= */
+.yakitori-contact-header {
+  background: linear-gradient(to bottom, var(--ya-bg-deep) 0%, var(--ya-bg-dark) 100%);
+  padding: 6rem 1rem 4rem; position: relative; overflow: hidden;
+}
+.yakitori-contact-header::before {
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 1px; height: 40px; background-color: #8c734b;
+}
+.yakitori-contact-header-container { max-width: 800px; margin: 0 auto; }
+.yakitori-contact-header-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+.yakitori-contact-header-en {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.85rem;
+  letter-spacing: 0.25em; color: #8c734b; margin: 0; text-transform: uppercase;
+}
+.yakitori-contact-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.5rem; color: #ffffff;
+  margin: 0; letter-spacing: 0.15em; font-weight: normal;
+}
+.yakitori-contact-sub {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.9rem; color: var(--ya-text-sub);
+  margin: 0; letter-spacing: 0.08em; position: relative; padding-top: 1.5rem;
+}
+.yakitori-contact-sub::before {
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 24px; height: 1px; background-color: #8c734b; opacity: 0.6;
+}
+@media (min-width: 768px) {
+  .yakitori-contact-header { padding: 8rem 2rem 5rem; }
+  .yakitori-contact-header::before { height: 60px; }
+  .yakitori-contact-title { font-size: 2rem; }
+  .yakitori-contact-sub { font-size: 1rem; padding-top: 2rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Contact Form Area
+   ========================================================= */
+.yakitori-contact-section {
+  background: linear-gradient(135deg, var(--ya-bg-dark) 0%, var(--ya-bg-base) 100%); padding: 5rem 1rem 8rem;
+}
+.yakitori-contact-container { max-width: 800px; margin: 0 auto; }
+.yakitori-contact-intro { text-align: center; margin-bottom: 3.5rem; }
+.yakitori-contact-lead {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.95rem; line-height: 2; color: var(--ya-text-main);
+  margin-bottom: 2rem; letter-spacing: 0.05em;
+}
+.yakitori-contact-note {
+  display: inline-block; background-color: rgba(255, 255, 255, 0.02); border: 1px solid var(--ya-border-gold); padding: 1.5rem 2rem; text-align: left;
+}
+.yakitori-contact-note-text { font-size: 0.85rem; line-height: 1.8; color: var(--ya-text-sub); margin: 0; }
+.yakitori-contact-form-wrap { background-color: transparent; box-shadow: none; padding: 0; }
+.yakitori-contact-form-wrap label { color: var(--ya-text-main); }
+.yakitori-contact-form-wrap input[type="text"],
+.yakitori-contact-form-wrap input[type="email"],
+.yakitori-contact-form-wrap input[type="tel"],
+.yakitori-contact-form-wrap textarea {
+  background-color: rgba(255, 255, 255, 0.03); border: 1px solid var(--ya-border-light); color: var(--ya-text-main);
+}
+.yakitori-contact-form-wrap .req { background-color: #8c734b; }
+.yakitori-contact-form-wrap .opt { background-color: var(--ya-border-light); color: var(--ya-text-sub); }
+.yakitori-contact-form-wrap .checkbox-label span { color: var(--ya-text-sub); }
+.yakitori-contact-submit {
+  background-color: #8c734b !important; color: #ffffff !important; border: none !important;
+  font-family: "Yu Mincho", "Noto Serif JP", serif; letter-spacing: 0.1em; padding: 1.2rem; border-radius: 2px; transition: all 0.3s ease;
+}
+.yakitori-contact-submit:hover { background-color: #7a6340 !important; }
+.yakitori-contact-thanks-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.4rem; color: var(--ya-text-main); margin-bottom: 1.5rem; letter-spacing: 0.05em;
+}
+.yakitori-contact-thanks-text { font-size: 0.95rem; line-height: 1.8; color: var(--ya-text-sub); }
+.yakitori-contact-back-btn { border: 1px solid rgba(255, 255, 255, 0.3); color: var(--ya-text-main); }
+.yakitori-contact-back-btn:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--ya-text-main); }
+
+@media (min-width: 768px) {
+  .yakitori-contact-section { padding: 7rem 2rem 10rem; }
+  .yakitori-contact-lead { font-size: 1.05rem; }
+  .yakitori-contact-note { padding: 1.5rem 3rem; }
+  .yakitori-contact-form-wrap { padding: 4rem; background-color: var(--ya-bg-deep); border: 1px solid var(--ya-border-gold); }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Service Page CTA
+   ========================================================= */
+.yakitori-s-cta-section { background-color: var(--ya-bg-deep); padding: 7rem 1rem; color: #e0e0e0; }
+.yakitori-s-cta-container { max-width: 680px; margin: 0 auto; }
+.yakitori-s-cta-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.5rem; font-weight: normal; letter-spacing: 0.15em; color: #ffffff; margin-bottom: 2rem;
+}
+.yakitori-s-cta-lead {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.95rem; line-height: 2.2; color: var(--ya-text-sub); margin-bottom: 3.5rem; letter-spacing: 0.05em;
+}
+.yakitori-s-cta-action { margin-bottom: 1.5rem; }
+.yakitori-s-cta-btn {
+  display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; padding: 1.2rem;
+  background-color: #d4b572; color: #121212 !important; border: none !important;
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1rem; letter-spacing: 0.05em; border-radius: 2px; transition: all 0.3s ease;
+}
+.yakitori-s-cta-btn:hover { background-color: #c4a562 !important; color: #ffffff !important; }
+.yakitori-s-cta-note { font-size: 0.8rem; color: #888888; margin: 0; }
+
+@media (min-width: 768px) {
+  .yakitori-s-cta-section { padding: 10rem 2rem; }
+  .yakitori-s-cta-title { font-size: 2rem; margin-bottom: 3rem; }
+  .yakitori-s-cta-lead { font-size: 1rem; margin-bottom: 4rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Home CTA
+   ========================================================= */
+.ya-cta-section { background-color: var(--ya-bg-deep); padding: 6rem 1rem; }
+.ya-cta-container { max-width: 680px; margin: 0 auto; }
+.ya-cta-box { border: 1px solid rgba(255, 255, 255, 0.15); padding: 4rem 1.5rem; background-color: rgba(255, 255, 255, 0.02); }
+.ya-cta-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.6rem; font-weight: normal; letter-spacing: 0.1em; margin-bottom: 1.5rem; color: #ffffff;
+}
+.ya-cta-text {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2.5rem; color: #cccccc;
+}
+.ya-cta-action { margin-bottom: 1.5rem; }
+.ya-cta-btn {
+  display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; padding: 1.2rem 2rem;
+  background-color: transparent !important; border: 1px solid #d4b572 !important; color: #d4b572 !important;
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1rem; letter-spacing: 0.05em; position: relative; transition: all 0.3s ease;
+}
+.ya-cta-btn::after {
+  content: ""; position: absolute; right: 1.5rem; width: 6px; height: 6px;
+  border-top: 1px solid #d4b572; border-right: 1px solid #d4b572; transform: rotate(45deg);
+}
+.ya-cta-note { font-size: 0.8rem; color: #888888; margin: 0; }
+
+@media (min-width: 768px) {
+  .ya-cta-section { padding: 8rem 2rem; }
+  .ya-cta-box { padding: 5rem 4rem; }
+  .ya-cta-title { font-size: 2rem; }
+  .ya-cta-text { font-size: 1rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Footer
+   ========================================================= */
+.yakitori-footer {
+  background: linear-gradient(180deg, var(--ya-bg-dark) 0%, var(--ya-bg-deep) 100%);
+  color: #c7c1b5; padding: 5rem 1rem 2rem; border-top: 2px solid #8c734b;
+}
+.yakitori-footer-inner { display: flex; flex-direction: column; gap: 3.5rem; margin-bottom: 4rem; }
+.yakitori-footer-info { text-align: center; }
+.yakitori-footer-logo {
+  font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 1.5rem; color: #e8e3da; letter-spacing: 0.15em; margin-bottom: 1.5rem;
+}
+.yakitori-footer-address { font-size: 0.9rem; line-height: 2; letter-spacing: 0.05em; }
+.yakitori-footer-tel { color: #c7c1b5; text-decoration: none; transition: color 0.3s ease; }
+.yakitori-footer-tel:hover { color: #8c734b; }
+.yakitori-footer-links { text-align: center; }
+.yakitori-footer-nav { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+.yakitori-footer-nav a { color: #c7c1b5; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.05em; transition: color 0.3s ease; }
+.yakitori-footer-nav a:hover { color: #8c734b; }
+.yakitori-footer-copy { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2.5rem; }
+.yakitori-footer-copy small { font-size: 0.75rem; color: #777777; letter-spacing: 0.05em; }
+
+@media (min-width: 768px) {
+  .yakitori-footer { padding: 7rem 2rem 2.5rem; }
+  .yakitori-footer-inner { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+  .yakitori-footer-info { text-align: left; }
+  .yakitori-footer-links { text-align: right; }
+  .yakitori-footer-nav { flex-direction: row; gap: 3rem; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Scroll Animations (custom-anim.js)
+   ========================================================= */
+.is-js-active [data-anim] {
+  opacity: 0; transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); will-change: opacity, transform;
+}
+.is-js-active [data-anim="fade-up"] { transform: translateY(20px); }
+.is-js-active [data-anim="fade-in"] { transform: translateY(0); }
+.is-js-active [data-anim="image-reveal"] { transform: translateY(15px); }
+.is-js-active [data-anim="image-reveal"] img {
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform: scale(1.04); 
+}
+.is-js-active .is-animated[data-anim] { opacity: 1; transform: translateY(0); }
+.is-js-active .is-animated[data-anim="image-reveal"] img { transform: scale(1); }
+.is-js-active [data-anim-delay="1"] { transition-delay: 0.15s; }
+.is-js-active [data-anim-delay="2"] { transition-delay: 0.3s; }
+.is-js-active [data-anim-delay="3"] { transition-delay: 0.45s; }
+.is-js-active [data-anim-delay="4"] { transition-delay: 0.6s; }
+.is-js-active [data-anim="image-reveal"][data-anim-delay="1"] img { transition-delay: 0.15s; }
+.is-js-active [data-anim="image-reveal"][data-anim-delay="2"] img { transition-delay: 0.3s; }
+.is-js-active [data-anim="image-reveal"][data-anim-delay="3"] img { transition-delay: 0.45s; }
+.is-js-active [data-anim="image-reveal"][data-anim-delay="4"] img { transition-delay: 0.6s; }
+@media (prefers-reduced-motion: reduce) {
+  .is-js-active [data-anim] { transition: none !important; opacity: 1 !important; transform: none !important; }
+}

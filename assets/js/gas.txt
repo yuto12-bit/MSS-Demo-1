@@ -1,0 +1,21 @@
+function doPost(e) {
+  try {
+    // 必須項目の再検証
+    if (!e.parameter.name || !e.parameter.email || !e.parameter.message) {
+      throw new Error("必須項目が不足しています。");
+    }
+    
+    // 【ここにメール送信（MailApp.sendEmail）等の処理を記述】
+
+    // 成功時レスポンス
+    let result = { "status": "success", "message": "正常に完了しました" };
+    return ContentService.createTextOutput(JSON.stringify(result))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch(error) {
+    // 失敗時レスポンス
+    let result = { "status": "error", "message": error.message };
+    return ContentService.createTextOutput(JSON.stringify(result))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
