@@ -79,7 +79,6 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--ya-border-gold);
-  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -712,4 +711,78 @@
 .is-js-active [data-anim="image-reveal"][data-anim-delay="4"] img { transition-delay: 0.6s; }
 @media (prefers-reduced-motion: reduce) {
   .is-js-active [data-anim] { transition: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* =========================================================
+   yakitori-akashi-01: Loading Screen
+   ========================================================= */
+.yakitori-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  /* サイトの世界観に合わせた、炭を思わせる深いグラデーション */
+  background: linear-gradient(135deg, var(--ya-bg-deep) 0%, var(--ya-bg-dark) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 1s;
+}
+
+/* 読み込み完了後に付与される非表示クラス */
+.yakitori-loader.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* DOMに残っても裏側のクリック等を阻害しない */
+}
+
+.yakitori-loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.yakitori-loader-text {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.1rem;
+  color: var(--ya-text-main);
+  letter-spacing: 0.25em; /* 文字間を広く取り、静けさを演出 */
+  margin: 0;
+  opacity: 0;
+  animation: ya-fade-in 1.5s ease forwards;
+}
+
+/* 文字の下にゆっくり伸びる繊細な金の線 */
+.yakitori-loader-line {
+  width: 0;
+  height: 1px;
+  background-color: #8c734b;
+  opacity: 0;
+  animation: ya-line-grow 1.5s ease 0.5s forwards; /* 文字より少し遅れて伸びる */
+}
+
+@keyframes ya-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ya-line-grow {
+  from { width: 0; opacity: 0; }
+  to { width: 40px; opacity: 0.6; }
+}
+
+/* 視差効果・アニメーション低減設定のユーザーへの配慮 */
+@media (prefers-reduced-motion: reduce) {
+  .yakitori-loader-text {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .yakitori-loader-line {
+    animation: none;
+    width: 40px;
+    opacity: 0.6;
+  }
+  .yakitori-loader {
+    transition: opacity 0.3s ease, visibility 0.3s;
+  }
 }
