@@ -786,3 +786,609 @@
     transition: opacity 0.3s ease, visibility 0.3s;
   }
 }
+
+/* =========================================================
+   SOP追加セクション: Mini About (HOME)
+   ========================================================= */
+.yakitori-mini-about-section {
+  background: var(--ya-bg-dark);
+  padding: 5rem 1rem;
+  text-align: center;
+}
+.yakitori-mini-about-container { max-width: 680px; margin: 0 auto; }
+.yakitori-mini-about-lead {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.05rem;
+  line-height: 2.2;
+  color: var(--ya-text-main);
+  letter-spacing: 0.05em;
+  margin: 0;
+  position: relative;
+  padding-top: 2rem;
+}
+.yakitori-mini-about-lead::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 24px;
+  background-color: #8c734b;
+}
+@media (min-width: 768px) {
+  .yakitori-mini-about-section { padding: 7rem 2rem; }
+  .yakitori-mini-about-lead { font-size: 1.15rem; }
+}
+
+/* =========================================================
+   SOP追加セクション: Business Info (HOME)
+   ========================================================= */
+.yakitori-bizinfo-section {
+  background: linear-gradient(135deg, var(--ya-bg-base) 0%, var(--ya-bg-dark) 100%);
+  padding: 5rem 1rem;
+}
+.yakitori-bizinfo-container { max-width: 700px; margin: 0 auto; }
+.yakitori-bizinfo-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 0.15em;
+  color: var(--ya-text-main);
+  position: relative;
+}
+.yakitori-bizinfo-title::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px;
+  background-color: #8c734b;
+  margin: 1rem auto 0;
+}
+.yakitori-bizinfo-table { width: 100%; border-collapse: collapse; }
+.yakitori-bizinfo-table th,
+.yakitori-bizinfo-table td {
+  padding: 1.2rem 0;
+  border-bottom: 1px dashed var(--ya-border-light);
+  text-align: left;
+  font-size: 0.95rem;
+  color: var(--ya-text-main);
+}
+.yakitori-bizinfo-table th {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-weight: normal;
+  width: 35%;
+  color: #8c734b;
+  vertical-align: top;
+}
+.yakitori-bizinfo-subtext {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ya-text-sub);
+  margin-top: 0.4rem;
+}
+@media (min-width: 768px) {
+  .yakitori-bizinfo-section { padding: 7rem 2rem; }
+  .yakitori-bizinfo-title { font-size: 1.6rem; }
+}
+
+/* =========================================================
+   SOP追加セクション: Access / Map (HOME)
+   ========================================================= */
+.yakitori-map-section {
+  background: var(--ya-bg-deep);
+  padding: 5rem 1rem;
+}
+.yakitori-map-container { max-width: 900px; margin: 0 auto; }
+.yakitori-map-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 0.15em;
+  color: var(--ya-text-main);
+}
+.yakitori-map-address {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ya-text-sub);
+  margin-bottom: 2.5rem;
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+.yakitori-map-iframe-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--ya-border-gold);
+  overflow: hidden;
+}
+.yakitori-map-iframe-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+@media (min-width: 768px) {
+  .yakitori-map-section { padding: 7rem 2rem; }
+  .yakitori-map-title { font-size: 1.6rem; }
+}
+
+/* =========================================================
+   SOP追加セクション: Page Links (HOME)
+   ========================================================= */
+.yakitori-pagelinks-section {
+  background: linear-gradient(to bottom, var(--ya-bg-dark) 0%, var(--ya-bg-base) 100%);
+  padding: 5rem 1rem;
+}
+.yakitori-pagelinks-container { max-width: 900px; margin: 0 auto; }
+.yakitori-pagelinks-eyebrow {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.8rem;
+  text-align: center;
+  letter-spacing: 0.25em;
+  color: #8c734b;
+  margin-bottom: 2.5rem;
+}
+.yakitori-pagelinks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.yakitori-pagelink-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem 4rem;
+  border: 1px solid var(--ya-border-gold);
+  background-color: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 160px;
+  gap: 0.6rem;
+}
+.yakitori-pagelink-item:hover {
+  background-color: rgba(140, 115, 75, 0.1);
+  border-color: #8c734b;
+  opacity: 1;
+}
+.yakitori-pagelink-en {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: #8c734b;
+  text-transform: uppercase;
+}
+.yakitori-pagelink-label {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.1rem;
+  color: var(--ya-text-main);
+  letter-spacing: 0.1em;
+}
+.yakitori-pagelink-arrow {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid #8c734b;
+  border-right: 1px solid #8c734b;
+  transform: rotate(45deg);
+}
+@media (min-width: 768px) {
+  .yakitori-pagelinks-section { padding: 7rem 2rem; }
+  .yakitori-pagelinks-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .yakitori-pagelink-item { min-height: 220px; }
+  .yakitori-pagelink-label { font-size: 1.2rem; }
+}
+
+/* =========================================================
+   SOP追加セクション: Price Guide (SERVICE)
+   ========================================================= */
+.yakitori-price-guide-section {
+  background: var(--ya-bg-base);
+  padding: 4rem 1rem;
+  border-top: 1px solid var(--ya-border-light);
+}
+.yakitori-price-guide-container { max-width: 900px; margin: 0 auto; }
+.yakitori-price-guide-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 0.15em;
+  color: var(--ya-text-main);
+  position: relative;
+}
+.yakitori-price-guide-title::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px;
+  background-color: #8c734b;
+  margin: 1rem auto 0;
+}
+.yakitori-price-guide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.yakitori-price-guide-item {
+  border: 1px solid var(--ya-border-gold);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.yakitori-price-guide-name {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.95rem;
+  color: var(--ya-text-sub);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.yakitori-price-guide-price {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.4rem;
+  color: #8c734b;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+.yakitori-price-guide-note {
+  font-size: 0.8rem;
+  color: var(--ya-text-sub);
+  margin: 0;
+}
+.yakitori-price-guide-note-bottom {
+  font-size: 0.85rem;
+  color: var(--ya-text-sub);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+@media (min-width: 768px) {
+  .yakitori-price-guide-section { padding: 6rem 2rem; }
+  .yakitori-price-guide-grid { grid-template-columns: repeat(3, 1fr); }
+  .yakitori-price-guide-title { font-size: 1.6rem; }
+}
+
+/* =========================================================
+   SOP追加セクション: Simple Flow (SERVICE)
+   ========================================================= */
+.yakitori-flow-section {
+  background: linear-gradient(to bottom, var(--ya-bg-dark) 0%, var(--ya-bg-deep) 100%);
+  padding: 5rem 1rem;
+}
+.yakitori-flow-container { max-width: 800px; margin: 0 auto; }
+.yakitori-flow-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.15em;
+  color: var(--ya-text-main);
+  position: relative;
+}
+.yakitori-flow-title::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px;
+  background-color: #8c734b;
+  margin: 1.2rem auto 0;
+}
+.yakitori-flow-steps { display: flex; flex-direction: column; gap: 0; }
+.yakitori-flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+  padding-bottom: 3rem;
+}
+.yakitori-flow-step:last-child { padding-bottom: 0; }
+.yakitori-flow-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1.2rem;
+  top: 2.8rem;
+  width: 1px;
+  height: calc(100% - 2.8rem);
+  background-color: var(--ya-border-gold);
+}
+.yakitori-flow-num {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.7rem;
+  color: #8c734b;
+  letter-spacing: 0.05em;
+  border: 1px solid #8c734b;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.yakitori-flow-body { padding-top: 0.3rem; }
+.yakitori-flow-step-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1rem;
+  color: var(--ya-text-main);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+.yakitori-flow-step-text {
+  font-size: 0.9rem;
+  color: var(--ya-text-sub);
+  line-height: 1.7;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .yakitori-flow-section { padding: 7rem 2rem; }
+  .yakitori-flow-title { font-size: 1.8rem; }
+  .yakitori-flow-steps { flex-direction: row; gap: 0; align-items: flex-start; }
+  .yakitori-flow-step {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 0;
+    padding-right: 2.5rem;
+  }
+  .yakitori-flow-step:last-child { padding-right: 0; }
+  .yakitori-flow-step:not(:last-child)::after {
+    left: auto;
+    right: 0;
+    top: 1.2rem;
+    width: 2.5rem;
+    height: 1px;
+  }
+  .yakitori-flow-num { margin-bottom: 1.5rem; }
+  .yakitori-flow-step-title { font-size: 1.05rem; }
+}
+
+/* =========================================================
+   SOP追加セクション: Contact Methods (CONTACT)
+   ========================================================= */
+.yakitori-contact-methods-section {
+  background: linear-gradient(135deg, var(--ya-bg-dark) 0%, var(--ya-bg-base) 100%);
+  padding: 5rem 1rem;
+}
+.yakitori-contact-methods-container { max-width: 900px; margin: 0 auto; }
+.yakitori-contact-methods-lead {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--ya-text-sub);
+  line-height: 2;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.05em;
+}
+.yakitori-contact-methods-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.yakitori-contact-method-card {
+  border: 1px solid var(--ya-border-gold);
+  background-color: rgba(255, 255, 255, 0.02);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.yakitori-contact-method-label {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: #8c734b;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+.yakitori-contact-method-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.1rem;
+  color: var(--ya-text-main);
+  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+}
+.yakitori-contact-method-text {
+  font-size: 0.85rem;
+  color: var(--ya-text-sub);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+  flex-grow: 1;
+}
+.yakitori-contact-method-btn {
+  display: inline-block;
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.9rem;
+  color: var(--ya-text-main);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 1.5rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 260px;
+  text-decoration: none;
+  text-align: center;
+}
+.yakitori-contact-method-btn:hover {
+  background-color: #8c734b;
+  border-color: #8c734b;
+  color: #fff;
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .yakitori-contact-methods-section { padding: 7rem 2rem; }
+  .yakitori-contact-methods-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* =========================================================
+   SOP追加セクション: Before Contact (CONTACT)
+   ========================================================= */
+.yakitori-before-contact-section {
+  background: var(--ya-bg-dark);
+  padding: 4rem 1rem;
+}
+.yakitori-before-contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid var(--ya-border-gold);
+  padding-top: 3rem;
+}
+.yakitori-before-contact-title {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--ya-text-main);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.1em;
+}
+.yakitori-before-contact-list { display: flex; flex-direction: column; gap: 1.8rem; }
+.yakitori-before-contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+.yakitori-before-contact-num {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.7rem;
+  color: #8c734b;
+  border: 1px solid #8c734b;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.yakitori-before-contact-text {
+  font-size: 0.9rem;
+  color: var(--ya-text-sub);
+  line-height: 1.8;
+  margin: 0;
+}
+.yakitori-before-contact-text strong { color: var(--ya-text-main); font-weight: normal; }
+@media (min-width: 768px) {
+  .yakitori-before-contact-section { padding: 5rem 2rem; }
+  .yakitori-before-contact-list { gap: 2rem; }
+}
+
+/* =========================================================
+   SOP追加セクション: Final CTA (CONTACT)
+   ========================================================= */
+.yakitori-final-cta-section {
+  background: var(--ya-bg-deep);
+  padding: 5rem 1rem;
+  text-align: center;
+}
+.yakitori-final-cta-container { max-width: 680px; margin: 0 auto; }
+.yakitori-final-cta-text {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.95rem;
+  color: var(--ya-text-sub);
+  line-height: 2.2;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.05em;
+}
+.yakitori-final-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2.5rem;
+  border: 1px solid #d4b572;
+  color: #d4b572;
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.yakitori-final-cta-btn:hover {
+  background-color: #8c734b;
+  border-color: #8c734b;
+  color: #fff;
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .yakitori-final-cta-section { padding: 7rem 2rem; }
+  .yakitori-final-cta-text { font-size: 1rem; }
+}
+
+/* =========================================================
+   SOP追加セクション: Privacy (PRIVACY)
+   ========================================================= */
+.yakitori-privacy-body-section {
+  background: linear-gradient(135deg, var(--ya-bg-dark) 0%, var(--ya-bg-base) 100%);
+  padding: 5rem 1rem;
+}
+.yakitori-privacy-body-container { max-width: 760px; margin: 0 auto; }
+.yakitori-privacy-doc { color: var(--ya-text-main); }
+.yakitori-privacy-intro {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--ya-text-sub);
+  margin-bottom: 2.5rem;
+}
+.yakitori-privacy-doc h3 {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 1rem;
+  color: var(--ya-text-main);
+  letter-spacing: 0.05em;
+  border-left: 2px solid #8c734b;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+  font-weight: normal;
+}
+.yakitori-privacy-doc p {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--ya-text-sub);
+}
+.yakitori-privacy-doc .document-footer p { color: var(--ya-text-sub); font-size: 0.85rem; }
+@media (min-width: 768px) {
+  .yakitori-privacy-body-section { padding: 7rem 2rem; }
+}
+
+.yakitori-privacy-contact-section {
+  background: var(--ya-bg-deep);
+  padding: 4rem 1rem 5rem;
+  text-align: center;
+}
+.yakitori-privacy-contact-container { max-width: 560px; margin: 0 auto; }
+.yakitori-privacy-contact-text {
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.9rem;
+  color: var(--ya-text-sub);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+.yakitori-privacy-contact-info {
+  font-size: 0.9rem;
+  color: var(--ya-text-main);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.yakitori-privacy-contact-info p { margin: 0; }
+.yakitori-privacy-back-btn {
+  display: inline-block;
+  font-family: "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 0.9rem;
+  color: var(--ya-text-sub);
+  border: 1px solid var(--ya-border-light);
+  padding: 0.8rem 2rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.yakitori-privacy-back-btn:hover {
+  border-color: #8c734b;
+  color: var(--ya-text-main);
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .yakitori-privacy-contact-section { padding: 5rem 2rem 7rem; }
+}
