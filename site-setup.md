@@ -3,12 +3,12 @@
 ## 1. 案件基本情報
 
 - 案件名：yakitori-akashi-01
-- 店舗名：炭火やきとり みのり
+- 店舗名：炭火やきとり れめどら
 - 会社名：
 - 公開URL：https://yakitori-akashi.remedora.jp
 - canonical URL：https://yakitori-akashi.remedora.jp/
-- title：炭火やきとり みのり | 明石でゆっくり楽しむ焼き鳥
-- meta description：明石で焼き鳥を楽しむなら、炭火やきとり みのり。落ち着いた店内で、一本ずつ丁寧に焼き上げた焼き鳥と一品料理をお楽しみいただけます。
+- title：炭火やきとり れめどら | 明石でゆっくり楽しむ焼き鳥
+- meta description：明石で焼き鳥を楽しむなら、炭火やきとり れめどら。落ち着いた店内で、一本ずつ丁寧に焼き上げた焼き鳥と一品料理をお楽しみいただけます。
 - OGP画像：assets/images/ogp.jpg
 - faviconファイル名：favicon.ico
 - apple-touch-icon ファイル名：apple-touch-icon.png
